@@ -32,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
     private Button divide;
     private Button equals;
 
+    //Clear Button
+    private Button clear;
+
     //Result
     private TextView info;
     private TextView result;
+
 
 
     @Override
@@ -47,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Displaying Numbers to the Screen
         displayVals();
-
     }
 
     private void setUI(){
@@ -71,67 +74,77 @@ public class MainActivity extends AppCompatActivity {
         //Result and Screen
         info = findViewById(R.id.textView3);
         result = findViewById(R.id.textView3);
+        clear = findViewById(R.id.buttonClear);
+
     }
 
     private void displayVals(){
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("0");
+                info.setText(info.getText() + "0");
             }
         });
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("1");
+                info.setText(info.getText() + "1");
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("2");
+                info.setText(info.getText() + "2");
             }
         });
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("3");
+                info.setText(info.getText() + "3");
             }
         });
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("4");
+                info.setText(info.getText() + "4");
             }
         });
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("5");
+                info.setText(info.getText() + "5");
             }
         });
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("6");
+                info.setText(info.getText() + "6");
             }
         });
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("7");
+                info.setText(info.getText() + "7");
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("8");
+                info.setText(info.getText() + "8");
             }
         });
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                info.setText("9");
+                info.setText(info.getText() + "9");
+            }
+        });
+
+        //If Clear Button is pressed --> Empty!
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                info.setText("");
             }
         });
     }
