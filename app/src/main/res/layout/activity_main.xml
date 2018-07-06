@@ -151,8 +151,17 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
-        android:text="TextView"
+        android:text=""
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button0"
+        app:layout_constraintStart_toStartOf="@+id/button1" />
 </android.support.constraint.ConstraintLayout>
