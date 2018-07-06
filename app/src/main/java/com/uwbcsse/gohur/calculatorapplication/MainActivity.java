@@ -75,9 +75,11 @@ public class MainActivity extends AppCompatActivity {
         info = findViewById(R.id.textView3);
         result = findViewById(R.id.textView3);
         clear = findViewById(R.id.buttonClear);
-
     }
 
+    /**
+     * This Method displays the values on the info bar
+     */
     private void displayVals(){
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +142,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //--Operators--
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                info.setText(info.getText() + " + ");
+            }
+        });
+        subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                info.setText(info.getText() + " - ");
+            }
+        });
+        multiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                info.setText(info.getText() + " * ");
+            }
+        });
+        divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                info.setText(info.getText() + " / ");
+            }
+        });
         //If Clear Button is pressed --> Empty!
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
