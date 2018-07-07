@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Stack;
+
+
 public class MainActivity extends AppCompatActivity {
     //------------------Button Fields------------------------------
     private Button zero;
@@ -39,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView info;
     private TextView result;
 
+    //Stack for Operations
+    private Stack<Integer> operation;
 
+    boolean opClick = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +57,18 @@ public class MainActivity extends AppCompatActivity {
 
         //Displaying Numbers to the Screen
         displayVals();
+        displayOperator();
     }
 
+    private void compute(){
+        if(opClick){
+            Integer num1 = Integer.parseInt((String)info.getText().subSequence(0,info.getText().length() - 3));
+        }
+    }
+
+    /**
+     * This method sets the fields with the buttons on User interface
+     */
     private void setUI(){
         //Setting Number Buttons
         zero = findViewById(R.id.button0);
@@ -81,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
      * This Method displays the values on the info bar
      */
     private void displayVals(){
+        //If Clear Button is pressed --> Empty!
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                info.setText("");
+            }
+        });
+
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,37 +165,43 @@ public class MainActivity extends AppCompatActivity {
                 info.setText(info.getText() + "9");
             }
         });
+    }
 
+    /**
+     * Displays the operator on the screen
+     */
+    private void displayOperator(){
         //--Operators--
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 info.setText(info.getText() + " + ");
+                opClick = true;
+                //compute();
             }
         });
         subtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.setText(info.getText() + " - ");
+                opClick = true;
+                //compute();
             }
         });
         multiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.setText(info.getText() + " * ");
+                opClick = true;
+                //compute();
             }
         });
         divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.setText(info.getText() + " / ");
-            }
-        });
-        //If Clear Button is pressed --> Empty!
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                info.setText("");
+                opClick = true;
+                //compute();
             }
         });
     }
